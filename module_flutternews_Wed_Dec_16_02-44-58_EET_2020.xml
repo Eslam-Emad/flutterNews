@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_flutternews" default="compile.module.flutternews">
+  <dirname property="module.flutternews.basedir" file="${ant.file.module_flutternews}"/>
+  
+  <property name="module.jdk.home.flutternews" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.flutternews" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.flutternews" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.flutternews" value="-encoding UTF-8 -source 13 -target 13 ${compiler.args}"/>
+  
+  <property name="flutternews.output.dir" value="${module.flutternews.basedir}/out/production/flutternews"/>
+  <property name="flutternews.testoutput.dir" value="${module.flutternews.basedir}/out/test/flutternews"/>
+  
+  <path id="flutternews.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="flutternews.module.production.classpath">
+    <path refid="${module.jdk.classpath.flutternews}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+    <path refid="library.flutter_plugins.classpath"/>
+  </path>
+  
+  <path id="flutternews.runtime.production.module.classpath">
+    <pathelement location="${flutternews.output.dir}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+    <path refid="library.flutter_plugins.classpath"/>
+  </path>
+  
+  <path id="flutternews.module.classpath">
+    <path refid="${module.jdk.classpath.flutternews}"/>
+    <pathelement location="${flutternews.output.dir}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+    <path refid="library.flutter_plugins.classpath"/>
+  </path>
+  
+  <path id="flutternews.runtime.module.classpath">
+    <pathelement location="${flutternews.testoutput.dir}"/>
+    <pathelement location="${flutternews.output.dir}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+    <path refid="library.flutter_plugins.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.flutternews">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.flutternews">
+    <patternset refid="excluded.from.module.flutternews"/>
+  </patternset>
+  
+  <path id="flutternews.module.sourcepath">
+    <dirset dir="${module.flutternews.basedir}">
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.flutternews" depends="compile.module.flutternews.production,compile.module.flutternews.tests" description="Compile module flutternews"/>
+  
+  <target name="compile.module.flutternews.production" depends="register.custom.compilers" description="Compile module flutternews; production classes">
+    <mkdir dir="${flutternews.output.dir}"/>
+    <javac2 destdir="${flutternews.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.flutternews}/javac">
+      <compilerarg line="${compiler.args.flutternews}"/>
+      <bootclasspath refid="flutternews.module.bootclasspath"/>
+      <classpath refid="flutternews.module.production.classpath"/>
+      <src refid="flutternews.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.flutternews"/>
+    </javac2>
+    
+    <copy todir="${flutternews.output.dir}">
+      <fileset dir="${module.flutternews.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.flutternews.tests" depends="register.custom.compilers,compile.module.flutternews.production" description="compile module flutternews; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.flutternews" description="cleanup module">
+    <delete dir="${flutternews.output.dir}"/>
+    <delete dir="${flutternews.testoutput.dir}"/>
+  </target>
+</project>

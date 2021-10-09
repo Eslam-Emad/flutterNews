@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="flutternews" default="all">
+  
+  
+  <property file="flutternews.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.dart_packages.classpath">
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/animated_splash_screen-1.0.1+2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.13/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/args-1.6.0/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/cached_network_image-2.4.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0-nullsafety.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.2.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0-nullsafety.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/convert-2.1.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.5/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-0.1.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/file-5.2.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blurhash-0.5.0/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_cache_manager-2.0.0/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.19/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.3.0-nullsafety.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/octo_image-0.3.0/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/page_transition-1.1.7+3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.24/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+6/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_platform_interface-1.0.4/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-0.0.4+3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-3.1.0/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-2.2.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-1.0.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/process-3.0.13/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.24.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.0-nullsafety.2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.3.2+1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite_common-1.0.2+1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/synchronized-2.2.0+2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0-nullsafety.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.19-nullsafety.2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0-nullsafety.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-2.2.2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0-nullsafety.3/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-1.0.7/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/win32-1.7.4/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.1.2/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/xml-4.5.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.1/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/pkg/sky_engine/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/packages/flutter/lib"/>
+    <pathelement location="${basedir}/../../../src/flutter/packages/flutter_test/lib"/>
+  </path>
+  
+  <path id="library.dart_sdk.classpath">
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/async"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/collection"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/convert"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/core"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/developer"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/html"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/io"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/isolate"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/math"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/mirrors"/>
+    <pathelement location="${basedir}/../../../src/flutter/bin/cache/dart-sdk/lib/typed_data"/>
+  </path>
+  
+  <path id="library.flutter_plugins.classpath">
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.24"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+6"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-0.0.4+3"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.3.2+1"/>
+    <pathelement location="${basedir}/../../../src/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-1.0.7"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_flutternews.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.flutternews" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.flutternews" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
